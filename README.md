@@ -1,4 +1,5 @@
-#Purpose of this Database
+# Purpose of this Database
+
 Sparkify has grown their business and therefore increase their user base and song database. 
 They  would like to move their data to the cloud to accommodate their need for more space.
 Currently their data is stored in S3 in a directory of JSON logs, but they would like to 
@@ -7,7 +8,7 @@ would...
  * extract data from S3 -> stage in Redshift -> transform data into dimension table which 
 can be used for analytics
 
-#Justification of Database Schema Design and ETL pipeline
+# Justification of Database Schema Design and ETL pipeline
 [Imgur](https://i.imgur.com/Y2fKlEi.png) <- this an ERD graphic for my database schema
 * Database Schema Design
     * data is in a star schema which is optimal for queries on `song_plays`
@@ -17,7 +18,7 @@ can be used for analytics
     make up the Redshift database
         * **fact table:** `song_plays`
         * **dimension tables:** `users`, `songs`, `artists`, `time`
-##Files in Repository
+## Files in Repository
 * `sql_queries.py`
     * this file contains SQL statements which creates tables, drops tables, 
     stages tables in Redshift, copy tables to Redshift, and inserts data into the tables.
@@ -34,7 +35,7 @@ can be used for analytics
 * `dwh.cfg`
     * this file contains Redshift database and IAM role info
  
-##How To Run Files
+## How To Run Files
 1. Run `create_tables.py` which imports SQL from `sql_queries.py` to create tables and 
 connect to the database so that data can be inserted into them later.
 2. Run `etl.py` after running `create_tables.py` so load data from S3 to staging tables
